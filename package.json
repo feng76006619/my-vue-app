@@ -1,42 +1,62 @@
 {
-  "name": "vue-app",
+  "name": "pixivic-refactor",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test": "vue-cli-service build --mode test",
+    "net": "vue-cli-service build --mode net",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "@better-scroll/core": "^2.0.0-beta.6",
+    "@better-scroll/observe-dom": "^2.0.0-beta.6",
+    "@better-scroll/pull-up": "^2.0.4",
+    "animate.css": "^3.7.2",
+    "axios": "^0.19.0",
+    "core-js": "^2.6.5",
+    "dayjs": "^1.8.17",
+    "file-saver": "^2.0.2",
+    "js-cookie": "^2.2.0",
+    "mobile-detect": "^1.4.4",
+    "qs": "^6.9.4",
+    "vconsole": "^3.3.4",
+    "vee-validate": "^3.2.2",
+    "vue": "^2.6.10",
+    "vue-cropper": "^0.5.0",
+    "vue-gtag": "^1.9.1",
+    "vue-infinite-loading": "^2.4.4",
+    "vue-page-stack": "^1.4.1",
+    "vue-router": "^3.0.3",
+    "vue2-better-scroll": "^1.2.1",
+    "vuelidate": "^0.7.5",
+    "vuetify": "^2.2.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "@mdi/font": "^4.8.95",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "lint-staged": "^8.1.5",
+    "material-design-icons-iconfont": "^5.0.1",
+    "postcss-px2rem": "^0.3.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.10"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }
